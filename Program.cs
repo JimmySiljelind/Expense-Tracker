@@ -1,3 +1,5 @@
+using Expense_Tracker.Data;
+
 namespace Expense_Tracker
 {
     internal static class Program
@@ -6,6 +8,12 @@ namespace Expense_Tracker
         static void Main()
         {
             ApplicationConfiguration.Initialize();
+
+            using (var db = new ExpenseContext())
+            {
+                db.Database.EnsureCreated();
+            }
+
             Application.Run(new MainForm());
         }
     }
