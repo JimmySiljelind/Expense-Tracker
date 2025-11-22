@@ -23,16 +23,37 @@ namespace Expense_Tracker.Forms
 
             if (_expense != null)
             {
-                txtAmount.Text = _expense.Amount.ToString();
+                numAmount.Value = _expense.Amount;
                 dtpDate.Value = _expense.Date;
                 txtDescription.Text = _expense.Description;
                 cmbCategory.SelectedValue = _expense.CategoryId;
+            }
+            else
+            {
+                numAmount.Value = 0;
+                numAmount.Text = string.Empty;
+                dtpDate.Value = DateTime.Today;
+                txtDescription.Clear();
             }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             using var db = new ExpenseContext();
+
+            if (string.IsNullOrWhiteSpace(numAmount.Text) || !decimal.TryParse(numAmount.Text, out var amount))
+            {
+                MessageBox.Show("Please enter a valid amount.", "Invalid amount",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (cmbCategory.SelectedItem is not Category selectedCategory)
+            {
+                MessageBox.Show("Please choose a category.", "Missing category",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             Expense entity;
             if (_expense == null)
@@ -45,13 +66,18 @@ namespace Expense_Tracker.Forms
                 entity = db.Expenses.First(e => e.Id == _expense.Id);
             }
 
-            entity.Amount = decimal.Parse(txtAmount.Text);
+            entity.Amount = amount;
             entity.Date = dtpDate.Value.Date;
             entity.Description = txtDescription.Text;
-            entity.CategoryId = (int)cmbCategory.SelectedValue;
+            entity.CategoryId = selectedCategory.Id;
 
             db.SaveChanges();
             DialogResult = DialogResult.OK;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
         }
     }
 }

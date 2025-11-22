@@ -363,3 +363,6 @@ MigrationBackup/
 FodyWeavers.xsd
 
 Data/Migrations/
+Data/expenses.db
+Data/expenses.db-shm
+Data/expenses.db-wal
