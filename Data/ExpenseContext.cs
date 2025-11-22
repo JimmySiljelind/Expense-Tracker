@@ -12,7 +12,7 @@ namespace Expense_Tracker.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlite("Data Source=expenses.db");
+                optionsBuilder.UseSqlite("Data Source=Data\\expenses.db");
             }
         }
     }
