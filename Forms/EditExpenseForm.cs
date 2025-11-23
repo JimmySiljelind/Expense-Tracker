@@ -5,7 +5,7 @@ namespace Expense_Tracker.Forms
 {
     public partial class EditExpenseForm : Form
     {
-        private readonly Expense? _expense; // null = new
+        private readonly Expense? _expense;
 
         public EditExpenseForm(Expense? expense = null)
         {
