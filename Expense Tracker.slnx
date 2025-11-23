@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="../CategoryClassLibrary/CategoryClassLibrary.vbproj" Id="a26fc874-c8a5-41d0-ac28-7677deaf8b9a" />
   <Project Path="Expense Tracker.csproj" />
 </Solution>

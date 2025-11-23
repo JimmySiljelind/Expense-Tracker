@@ -60,10 +60,10 @@ namespace Expense_Tracker
 
             var orderedColumns = new[]
             {
+                dateColumn,
                 amountColumn,
                 categoryColumn,
-                descriptionColumn,
-                dateColumn
+                descriptionColumn
             };
 
             var displayIndex = 0;

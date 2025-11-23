@@ -1,3 +1,4 @@
+using CategoryClassLibrary;
 using Expense_Tracker.Data;
 using Expense_Tracker.Models;
 
@@ -16,14 +17,11 @@ namespace Expense_Tracker
 
                 if (!db.Categories.Any())
                 {
-                    db.Categories.AddRange(
-                        new Category { Name = "Food" },
-                        new Category { Name = "Transport" },
-                        new Category { Name = "Utilities" },
-                        new Category { Name = "Entertainment" },
-                        new Category { Name = "Clothes" },
-                        new Category { Name = "Other" }
-                    );
+                    var defaultCategories = CategoriesList
+                        .GetDefaultNames()
+                        .Select(name => new Category { Name = name });
+
+                    db.Categories.AddRange(defaultCategories);
                     db.SaveChanges();
                 }
             }
