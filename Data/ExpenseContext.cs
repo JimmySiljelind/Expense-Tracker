@@ -12,7 +12,7 @@ namespace Expense_Tracker.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                var dataDir = Path.Combine(AppContext.BaseDirectory, "Data");
+                var dataDir = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, @"..\..\..\Data"));
                 Directory.CreateDirectory(dataDir);
                 var dbPath = Path.Combine(dataDir, "expenses.db");
 
