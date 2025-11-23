@@ -58,6 +58,26 @@ namespace Expense_Tracker
                 categoryColumn.HeaderText = "Category";
             }
 
+            var orderedColumns = new[]
+            {
+                amountColumn,
+                categoryColumn,
+                descriptionColumn,
+                dateColumn
+            };
+
+            var displayIndex = 0;
+            foreach (var column in orderedColumns)
+            {
+                if (column is null)
+                {
+                    continue;
+                }
+
+                column.DisplayIndex = displayIndex;
+                displayIndex++;
+            }
+
             var total = expenses.Sum(e => e.Amount);
             lblTotal.Text = $"Total: {total.ToString("C2", new CultureInfo("sv-SE"))}";
         }
@@ -110,7 +130,6 @@ namespace Expense_Tracker
 
             [Browsable(false)]
             public Expense Entity { get; }
-            public int Id => Entity.Id;
             public decimal Amount => Entity.Amount;
             public DateTime Date => Entity.Date;
             public string Description => Entity.Description;
