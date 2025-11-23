@@ -12,7 +12,11 @@ namespace Expense_Tracker.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlite("Data Source=Data\\expenses.db");
+                var dataDir = Path.Combine(AppContext.BaseDirectory, "Data");
+                Directory.CreateDirectory(dataDir);
+                var dbPath = Path.Combine(dataDir, "expenses.db");
+
+                optionsBuilder.UseSqlite($"Data Source={dbPath}");
             }
         }
     }
