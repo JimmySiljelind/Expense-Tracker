@@ -16,7 +16,11 @@ namespace Expense_Tracker.Forms
         private void EditExpenseForm_Load(object sender, EventArgs e)
         {
             using var db = new ExpenseContext();
-            var categories = db.Categories.OrderBy(c => c.Name).ToList();
+            var categories = db.Categories
+                .AsEnumerable()
+                .OrderBy(c => string.Equals(c.Name, "Other", StringComparison.OrdinalIgnoreCase))
+                .ThenBy(c => c.Name)
+                .ToList();
             cmbCategory.DataSource = categories;
             cmbCategory.DisplayMember = "Name";
             cmbCategory.ValueMember = "Id";
