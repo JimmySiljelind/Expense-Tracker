@@ -130,10 +130,10 @@ namespace Expense_Tracker
 
             [Browsable(false)]
             public Expense Entity { get; }
-            public decimal Amount => Entity.Amount;
             public DateTime Date => Entity.Date;
-            public string Description => Entity.Description;
+            public decimal Amount => Entity.Amount;
             public string Category => Entity.Category?.Name ?? string.Empty;
+            public string Description => Entity.Description;
         }
     }
 }
