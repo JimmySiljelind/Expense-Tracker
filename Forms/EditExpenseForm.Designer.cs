@@ -51,8 +51,7 @@
             // panelCard
             // 
             panelCard.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panelCard.BackColor = Color.FromArgb(249, 250, 252);
-            panelCard.BorderStyle = BorderStyle.FixedSingle;
+            panelCard.BorderStyle = BorderStyle.None;
             panelCard.Controls.Add(actionsPanel);
             panelCard.Controls.Add(tableFields);
             panelCard.Controls.Add(lblTitle);
