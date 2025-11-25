@@ -21,22 +21,22 @@ namespace Expense_Tracker.Forms
                 .OrderBy(c => string.Equals(c.Name, "Other", StringComparison.OrdinalIgnoreCase))
                 .ThenBy(c => c.Name)
                 .ToList();
-            cmbCategory.DataSource = categories;
-            cmbCategory.DisplayMember = "Name";
-            cmbCategory.ValueMember = "Id";
+            comBoxCategory.DataSource = categories;
+            comBoxCategory.DisplayMember = "Name";
+            comBoxCategory.ValueMember = "Id";
 
             if (_expense != null)
             {
                 numAmount.Value = _expense.Amount;
-                dtpDate.Value = _expense.Date;
+                ExpenseDate.Value = _expense.Date;
                 txtDescription.Text = _expense.Description;
-                cmbCategory.SelectedValue = _expense.CategoryId;
+                comBoxCategory.SelectedValue = _expense.CategoryId;
             }
             else
             {
                 numAmount.Value = 0;
                 numAmount.Text = string.Empty;
-                dtpDate.Value = DateTime.Today;
+                ExpenseDate.Value = DateTime.Today;
                 txtDescription.Clear();
             }
         }
@@ -52,7 +52,7 @@ namespace Expense_Tracker.Forms
                 return;
             }
 
-            if (cmbCategory.SelectedItem is not Category selectedCategory)
+            if (comBoxCategory.SelectedItem is not Category selectedCategory)
             {
                 MessageBox.Show("Please choose a category.", "Missing category",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -71,7 +71,7 @@ namespace Expense_Tracker.Forms
             }
 
             entity.Amount = amount;
-            entity.Date = dtpDate.Value.Date;
+            entity.Date = ExpenseDate.Value.Date;
             entity.Description = txtDescription.Text;
             entity.CategoryId = selectedCategory.Id;
 

@@ -33,15 +33,15 @@
             btnSave = new Button();
             btnCancel = new Button();
             tableFields = new TableLayoutPanel();
-            lblDescription = new Label();
-            lblAmount = new Label();
+            lableDescription = new Label();
+            lableAmount = new Label();
             numAmount = new NumericUpDown();
-            lblDate = new Label();
-            dtpDate = new DateTimePicker();
-            lblCategory = new Label();
-            cmbCategory = new ComboBox();
+            lableDate = new Label();
+            ExpenseDate = new DateTimePicker();
+            lableCategory = new Label();
+            comBoxCategory = new ComboBox();
             txtDescription = new TextBox();
-            lblTitle = new Label();
+            lableTitle = new Label();
             panelCard.SuspendLayout();
             actionsPanel.SuspendLayout();
             tableFields.SuspendLayout();
@@ -51,10 +51,9 @@
             // panelCard
             // 
             panelCard.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panelCard.BorderStyle = BorderStyle.None;
             panelCard.Controls.Add(actionsPanel);
             panelCard.Controls.Add(tableFields);
-            panelCard.Controls.Add(lblTitle);
+            panelCard.Controls.Add(lableTitle);
             panelCard.Location = new Point(16, 16);
             panelCard.Name = "panelCard";
             panelCard.Padding = new Padding(24);
@@ -111,13 +110,13 @@
             tableFields.ColumnCount = 2;
             tableFields.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 32F));
             tableFields.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 68F));
-            tableFields.Controls.Add(lblDescription, 0, 3);
-            tableFields.Controls.Add(lblAmount, 0, 0);
+            tableFields.Controls.Add(lableDescription, 0, 3);
+            tableFields.Controls.Add(lableAmount, 0, 0);
             tableFields.Controls.Add(numAmount, 1, 0);
-            tableFields.Controls.Add(lblDate, 0, 1);
-            tableFields.Controls.Add(dtpDate, 1, 1);
-            tableFields.Controls.Add(lblCategory, 0, 2);
-            tableFields.Controls.Add(cmbCategory, 1, 2);
+            tableFields.Controls.Add(lableDate, 0, 1);
+            tableFields.Controls.Add(ExpenseDate, 1, 1);
+            tableFields.Controls.Add(lableCategory, 0, 2);
+            tableFields.Controls.Add(comBoxCategory, 1, 2);
             tableFields.Controls.Add(txtDescription, 1, 3);
             tableFields.Location = new Point(24, 72);
             tableFields.Name = "tableFields";
@@ -131,28 +130,28 @@
             // 
             // lblDescription
             // 
-            lblDescription.AutoSize = true;
-            lblDescription.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-            lblDescription.ForeColor = Color.FromArgb(17, 24, 39);
-            lblDescription.Location = new Point(3, 180);
-            lblDescription.Margin = new Padding(3, 12, 3, 0);
-            lblDescription.Name = "lblDescription";
-            lblDescription.Size = new Size(129, 17);
-            lblDescription.TabIndex = 13;
-            lblDescription.Text = "Description / Notes";
-            lblDescription.TextAlign = ContentAlignment.BottomLeft;
+            lableDescription.AutoSize = true;
+            lableDescription.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            lableDescription.ForeColor = Color.FromArgb(17, 24, 39);
+            lableDescription.Location = new Point(3, 180);
+            lableDescription.Margin = new Padding(3, 12, 3, 0);
+            lableDescription.Name = "lblDescription";
+            lableDescription.Size = new Size(129, 17);
+            lableDescription.TabIndex = 13;
+            lableDescription.Text = "Description / Notes";
+            lableDescription.TextAlign = ContentAlignment.BottomLeft;
             // 
             // lblAmount
             // 
-            lblAmount.Anchor = AnchorStyles.Left;
-            lblAmount.AutoSize = true;
-            lblAmount.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-            lblAmount.ForeColor = Color.FromArgb(17, 24, 39);
-            lblAmount.Location = new Point(3, 19);
-            lblAmount.Name = "lblAmount";
-            lblAmount.Size = new Size(94, 17);
-            lblAmount.TabIndex = 8;
-            lblAmount.Text = "Amount (SEK)";
+            lableAmount.Anchor = AnchorStyles.Left;
+            lableAmount.AutoSize = true;
+            lableAmount.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            lableAmount.ForeColor = Color.FromArgb(17, 24, 39);
+            lableAmount.Location = new Point(3, 19);
+            lableAmount.Name = "lblAmount";
+            lableAmount.Size = new Size(94, 17);
+            lableAmount.TabIndex = 8;
+            lableAmount.Text = "Amount (SEK)";
             // 
             // numAmount
             // 
@@ -171,53 +170,53 @@
             // 
             // lblDate
             // 
-            lblDate.Anchor = AnchorStyles.Left;
-            lblDate.AutoSize = true;
-            lblDate.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-            lblDate.ForeColor = Color.FromArgb(17, 24, 39);
-            lblDate.Location = new Point(3, 75);
-            lblDate.Name = "lblDate";
-            lblDate.Size = new Size(37, 17);
-            lblDate.TabIndex = 9;
-            lblDate.Text = "Date";
+            lableDate.Anchor = AnchorStyles.Left;
+            lableDate.AutoSize = true;
+            lableDate.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            lableDate.ForeColor = Color.FromArgb(17, 24, 39);
+            lableDate.Location = new Point(3, 75);
+            lableDate.Name = "lblDate";
+            lableDate.Size = new Size(37, 17);
+            lableDate.TabIndex = 9;
+            lableDate.Text = "Date";
             // 
             // dtpDate
             // 
-            dtpDate.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            dtpDate.CalendarForeColor = Color.Black;
-            dtpDate.CalendarMonthBackground = Color.White;
-            dtpDate.CalendarTitleBackColor = Color.White;
-            dtpDate.CalendarTitleForeColor = Color.Black;
-            dtpDate.Font = new Font("Segoe UI", 9.5F);
-            dtpDate.Location = new Point(233, 72);
-            dtpDate.Margin = new Padding(8);
-            dtpDate.Name = "dtpDate";
-            dtpDate.Size = new Size(465, 24);
-            dtpDate.TabIndex = 1;
+            ExpenseDate.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            ExpenseDate.CalendarForeColor = Color.Black;
+            ExpenseDate.CalendarMonthBackground = Color.White;
+            ExpenseDate.CalendarTitleBackColor = Color.White;
+            ExpenseDate.CalendarTitleForeColor = Color.Black;
+            ExpenseDate.Font = new Font("Segoe UI", 9.5F);
+            ExpenseDate.Location = new Point(233, 72);
+            ExpenseDate.Margin = new Padding(8);
+            ExpenseDate.Name = "dtpDate";
+            ExpenseDate.Size = new Size(465, 24);
+            ExpenseDate.TabIndex = 1;
             // 
             // lblCategory
             // 
-            lblCategory.Anchor = AnchorStyles.Left;
-            lblCategory.AutoSize = true;
-            lblCategory.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-            lblCategory.ForeColor = Color.FromArgb(17, 24, 39);
-            lblCategory.Location = new Point(3, 131);
-            lblCategory.Name = "lblCategory";
-            lblCategory.Size = new Size(64, 17);
-            lblCategory.TabIndex = 11;
-            lblCategory.Text = "Category";
+            lableCategory.Anchor = AnchorStyles.Left;
+            lableCategory.AutoSize = true;
+            lableCategory.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            lableCategory.ForeColor = Color.FromArgb(17, 24, 39);
+            lableCategory.Location = new Point(3, 131);
+            lableCategory.Name = "lblCategory";
+            lableCategory.Size = new Size(64, 17);
+            lableCategory.TabIndex = 11;
+            lableCategory.Text = "Category";
             // 
             // cmbCategory
             // 
-            cmbCategory.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbCategory.Font = new Font("Segoe UI", 9.5F);
-            cmbCategory.FormattingEnabled = true;
-            cmbCategory.Location = new Point(233, 127);
-            cmbCategory.Margin = new Padding(8);
-            cmbCategory.Name = "cmbCategory";
-            cmbCategory.Size = new Size(465, 25);
-            cmbCategory.TabIndex = 2;
+            comBoxCategory.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            comBoxCategory.DropDownStyle = ComboBoxStyle.DropDownList;
+            comBoxCategory.Font = new Font("Segoe UI", 9.5F);
+            comBoxCategory.FormattingEnabled = true;
+            comBoxCategory.Location = new Point(233, 127);
+            comBoxCategory.Margin = new Padding(8);
+            comBoxCategory.Name = "cmbCategory";
+            comBoxCategory.Size = new Size(465, 25);
+            comBoxCategory.TabIndex = 2;
             // 
             // txtDescription
             // 
@@ -234,14 +233,14 @@
             // 
             // lblTitle
             // 
-            lblTitle.AutoSize = true;
-            lblTitle.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold);
-            lblTitle.ForeColor = Color.FromArgb(17, 24, 39);
-            lblTitle.Location = new Point(24, 24);
-            lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(168, 30);
-            lblTitle.TabIndex = 6;
-            lblTitle.Text = "Expense Details";
+            lableTitle.AutoSize = true;
+            lableTitle.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold);
+            lableTitle.ForeColor = Color.FromArgb(17, 24, 39);
+            lableTitle.Location = new Point(24, 24);
+            lableTitle.Name = "lblTitle";
+            lableTitle.Size = new Size(168, 30);
+            lableTitle.TabIndex = 6;
+            lableTitle.Text = "Expense Details";
             // 
             // EditExpenseForm
             // 
@@ -257,7 +256,7 @@
             MinimizeBox = false;
             Name = "EditExpenseForm";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "Edit Expenses";
+            Text = "Add/Edit Expenses";
             Load += EditExpenseForm_Load;
             panelCard.ResumeLayout(false);
             panelCard.PerformLayout();
@@ -271,15 +270,15 @@
         #endregion
 
         private Panel panelCard;
-        private Label lblTitle;
-        private Label lblAmount;
+        private Label lableTitle;
+        private Label lableAmount;
         private NumericUpDown numAmount;
-        private DateTimePicker dtpDate;
-        private Label lblDate;
-        private ComboBox cmbCategory;
-        private Label lblCategory;
+        private DateTimePicker ExpenseDate;
+        private Label lableDate;
+        private ComboBox comBoxCategory;
+        private Label lableCategory;
         private TextBox txtDescription;
-        private Label lblDescription;
+        private Label lableDescription;
         private Button btnSave;
         private Button btnCancel;
         private FlowLayoutPanel actionsPanel;
